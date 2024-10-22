@@ -28,18 +28,6 @@ int BusquedaBinaria(T valor,vector<T>& v, int ini, int fin)
 }
 
 template <typename T>
-void QuickSort(vector<T>& v, int ini, int fin)
-{
-	if(ini<fin)
-	{
-		int pivot=Partition(v,ini,fin);
-		QuickSort(v,ini,pivot-1);
-		QuickSort(v,pivot+1,fin);
-	}
-
-}
-
-template <typename T>
 int Partition(vector <T>& v, int ini, int fin)
 {
 	T x=v[fin];
@@ -54,5 +42,16 @@ int Partition(vector <T>& v, int ini, int fin)
 	}
 	swap(v[i],v[fin]);
 	return i;
+}
+
+template <typename T>
+void QuickSort(vector<T>& v, int ini, int fin)
+{
+	if(ini<fin)
+	{
+		int pivot=Partition(v,ini,fin);
+		QuickSort(v,ini,pivot-1);
+		QuickSort(v,pivot+1,fin);
+	}
 
 }
